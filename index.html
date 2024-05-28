@@ -87,6 +87,9 @@
           return newIntsArr;
         }
         // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
+        getAllReversed() {
+          return this.ints.reverse();
+        }
         // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
         // ❗ WARNING: note that except for push and pop, the methods don't change the `ints` property
       }
@@ -106,6 +109,40 @@
         //      * When engaging the safety, return "Safety enabled!"
         //      * When disengaging the safety, return "Safety disabled!"
         // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
+        constructor(projectiles) {
+          this.maxCapacity = projectiles;
+          this.ammo = projectiles;
+          this.safety = true;
+        }
+        shoot() {
+          if (this.ammo < 1 || this.safety) {
+            return "Click!";
+          } else {
+            this.ammo -= 1;
+            return "Bang!";
+          }
+        }
+        toggleSafety() {
+          if (!this.safety) {
+            this.safety = true;
+            return "Safety enabled!";
+          } else {
+            this.safety = false;
+            return "Safety disabled!";
+          }
+        }
+        reload(num) {
+          if (num > this.maxCapacity) {
+            this.ammo = this.maxCapacity;
+            return `${this.maxCapacity} projectiles left!`;
+          }
+          if (typeof num !== "number" || num <= 0) {
+            return "Error reloading!";
+          } else {
+            this.ammo = num;
+            return `${num} projectiles left!`;
+          }
+        }
       }
 
       // 👉 CHALLENGE 3 EBook
