@@ -63,10 +63,29 @@
         getNegatives() {
           return this.ints.filter((int) => int < 0);
         }
-        // 🧠 Implement a `getAllSquared` method which returns an array with the integers squared
+        // 🧠 Implement a `getAllSquared` method which returns an array with the integers squared.
+        getAllSquared() {
+          return this.ints.map((int) => int * int);
+        }
         // 🧠 Implement a `pop` method which removes the last integer from `ints`  and returns it
+        pop() {
+          return this.ints.pop();
+        }
         // 🧠 Implement a `push` method which takes an int and pushes it to the end of `ints`, and returns the updated `ints` property
+        push(int) {
+          this.ints.push(int);
+          return this.ints;
+        }
         // 🧠 Implement a `getEveryNth` method which takes an int `n` and returns an array with the ints at position 0, n, n + n, n + n + n, etc
+        getEveryNth(n) {
+          let newIntsArr = [];
+          for (let index in this.ints) {
+            let productOfNAndIndex = n * index;
+            if (this.ints[productOfNAndIndex] < this.ints.length)
+              newIntsArr.push(this.ints[productOfNAndIndex]);
+          }
+          return newIntsArr;
+        }
         // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
         // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
         // ❗ WARNING: note that except for push and pop, the methods don't change the `ints` property
