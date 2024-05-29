@@ -78,13 +78,12 @@
         }
         // 🧠 Implement a `getEveryNth` method which takes an int `n` and returns an array with the ints at position 0, n, n + n, n + n + n, etc
         getEveryNth(n) {
-          let newIntsArr = [];
-          for (let index in this.ints) {
-            let productOfNAndIndex = n * index;
-            if (this.ints[productOfNAndIndex] < this.ints.length)
-              newIntsArr.push(this.ints[productOfNAndIndex]);
-          }
-          return newIntsArr;
+        let newIntsArr = [];
+        for (let i = n - 1; i < this.ints.length; i += n) {
+            newIntsArr.push(this.ints[i]);
+        }
+        return newIntsArr;
+        }
         }
         // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
         getAllReversed() {
